@@ -1,1 +1,1 @@
-# VitalityMeter
+# Vitality Meter
