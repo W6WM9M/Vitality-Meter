@@ -1,0 +1,3 @@
+rootProject.name = "Making And Tinkering"
+include ':app'
+include ':blessed'
