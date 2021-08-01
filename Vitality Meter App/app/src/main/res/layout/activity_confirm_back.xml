@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmBackActivity">
+
+    <TextView
+        android:id="@+id/confirmBackTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:text="Confirm back?"
+        android:textAllCaps="true"
+        android:textColor="#898686"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmBackDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/confirmBackDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:gravity="center_horizontal"
+        android:text="Reading is in progress. Do you wish to stop the reading and go back to the home page?"
+        android:textColor="#898686"
+        app:layout_constraintBottom_toTopOf="@+id/yesBtn"
+        app:layout_constraintEnd_toEndOf="@+id/confirmBackTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/confirmBackTitle"
+        app:layout_constraintTop_toBottomOf="@+id/confirmBackTitle" />
+
+    <Button
+        android:id="@+id/yesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/audiowide"
+        android:text="Yes"
+        android:textColor="@color/white"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/noBtn"
+        app:layout_constraintTop_toBottomOf="@+id/confirmBackDetails" />
+
+    <Button
+        android:id="@+id/noBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/audiowide"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="No"
+        android:textColor="@color/white"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/yesBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmBackDetails" />
+</androidx.constraintlayout.widget.ConstraintLayout>

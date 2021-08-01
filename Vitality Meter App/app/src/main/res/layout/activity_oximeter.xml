@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OximeterActivity"
+>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/oximeterAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            app:title="Oximeter"
+            app:titleTextAppearance="@style/TitleBarTextAppearance"
+            app:titleTextColor="#F86969"
+            >
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/oximeterSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/oximeterPowerTxtView"
+        android:layout_alignBottom="@+id/oximeterPowerTxtView"
+        android:layout_toEndOf="@+id/oximeterPowerTxtView"
+        android:checked="false"
+        android:enabled="true"
+        app:layout_constraintBottom_toBottomOf="@+id/oximeterPowerTxtView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oximeterPowerTxtView"
+        app:layout_constraintTop_toTopOf="@+id/oximeterPowerTxtView"
+        app:layout_constraintVertical_bias="0.409"
+        app:switchMinWidth="60dp" />
+
+    <TextView
+        android:id="@+id/oximeterPowerTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/oximeterTitle"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Power:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/oximeterSwitch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oximeterAppBar" />
+
+    <Button
+        android:id="@+id/oximeterReadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:enabled="false"
+        android:fontFamily="@font/audiowide"
+        android:text="Start Reading"
+        android:textAllCaps="false"
+        android:textColor="@color/button_text"
+        app:backgroundTint="@color/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oximeterPowerTxtView" />
+
+
+    <TextView
+        android:id="@+id/fingerOnOximeterNotification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:gravity="center_horizontal"
+        android:text="Place your finger on the sensor"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fingerOnOximeterImg"
+        app:layout_constraintEnd_toEndOf="@+id/oximeterSwitch"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/oximeterPowerTxtView" />
+
+    <ImageView
+        android:id="@+id/fingerOnOximeterImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/finger_on_oximeter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/realTimeSpO2Reading"
+        app:layout_constraintStart_toStartOf="@+id/realTimeSpO2Reading"
+        app:layout_constraintTop_toBottomOf="@+id/oximeterReadButton"
+        app:tint="#898686" />
+
+    <ImageView
+        android:id="@+id/bloodOxygenImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@mipmap/oximeter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/realTimeSpO2Reading" />
+
+    <org.firezenk.bubbleemitter.BubbleEmitterView
+        android:id="@+id/bubbleEmitter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/realTimeSpO2Reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/audiowide"
+        android:gravity="center_horizontal"
+        android:text="0"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/realTimeSpO2" />
+
+    <TextView
+        android:id="@+id/realTimeSpO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Real-time SpO\u2082:"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/realTimeSpO2Reading"
+        app:layout_constraintStart_toStartOf="@+id/realTimeSpO2Reading"
+        app:layout_constraintTop_toBottomOf="@+id/maxSpO2Reading" />
+
+    <TextView
+        android:id="@+id/maxSpO2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Maximum SpO\u2082:"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/maxSpO2Reading"
+        app:layout_constraintStart_toStartOf="@+id/maxSpO2Reading"
+        app:layout_constraintTop_toBottomOf="@+id/oximeterReadButton" />
+
+    <TextView
+        android:id="@+id/maxSpO2Reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/audiowide"
+        android:text="0"
+        android:textSize="32sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxSpO2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    >
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            app:title="@string/app_name"
+            app:titleTextAppearance="@style/TitleBarTextAppearance"
+            app:titleTextColor="#F86969"
+            >
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <!--Bluetooth Card View -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bluetoothCardView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/oximeterCardView"
+            app:layout_constraintStart_toStartOf="@+id/glucometerCardView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/bluetoothImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/ic_bluetooth"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/deviceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Device : "
+                    app:layout_constraintBottom_toTopOf="@+id/StatusTextView"
+                    app:layout_constraintStart_toEndOf="@+id/bluetoothImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/StatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Status : "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/bluetoothImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/deviceTextView" />
+
+                <TextView
+                    android:id="@+id/deviceNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/audiowide"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="@+id/deviceTextView"
+                    app:layout_constraintStart_toEndOf="@+id/deviceTextView"
+                    app:layout_constraintTop_toTopOf="@+id/deviceTextView" />
+
+                <TextView
+                    android:id="@+id/connectionStatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:text="Not Connected"
+                    android:textColor="#F44336"
+                    app:layout_constraintBottom_toBottomOf="@+id/StatusTextView"
+                    app:layout_constraintStart_toStartOf="@+id/deviceNameTextView"
+                    app:layout_constraintTop_toTopOf="@+id/StatusTextView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <!--Glucometer -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/glucometerCardView"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/oximeterCardView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bluetoothCardView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/glucometerIcon"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/glucometer" />
+
+                <TextView
+                    android:id="@+id/glucometerTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center"
+                    android:text="Glucometer"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Oximeter -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/oximeterCardView"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/glucometerCardView"
+            app:layout_constraintTop_toBottomOf="@+id/bluetoothCardView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/oximeterIcon"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/oximeter" />
+
+                <TextView
+                    android:id="@+id/oximeterTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center"
+                    android:text="Oximeter"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Heart Rate Sensor -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/heartRateCardView"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/glucometerCardView"
+            app:layout_constraintStart_toStartOf="@+id/glucometerCardView"
+            app:layout_constraintTop_toBottomOf="@+id/glucometerCardView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/heartRateIcon"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:src="@mipmap/heartrate" />
+
+                <TextView
+                    android:id="@+id/heartRateTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center"
+                    android:text="Heart Rate Sensor"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Light Bulb Example -->
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/lightBulbCardView"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="200dp"-->
+        <!--            android:clickable="true"-->
+        <!--            android:focusable="true"-->
+        <!--            android:foreground="?android:attr/selectableItemBackground"-->
+        <!--            app:cardCornerRadius="10dp"-->
+        <!--            app:cardElevation="5dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/heartRateCardView"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/heartRateCardView"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/heartRateCardView">-->
+
+        <!--            <RelativeLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent">-->
+
+        <!--                <ImageView-->
+        <!--                    android:id="@+id/lightBulbIcon"-->
+        <!--                    android:layout_width="150dp"-->
+        <!--                    android:layout_height="150dp"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:clickable="false"-->
+        <!--                    android:src="@mipmap/lightbulb" />-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/lightBulbTextView"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_below="@+id/lightBulbIcon"-->
+        <!--                    android:layout_alignParentBottom="true"-->
+        <!--                    android:layout_centerHorizontal="true"-->
+        <!--                    android:layout_marginTop="3dp"-->
+        <!--                    android:layout_marginBottom="0dp"-->
+        <!--                    android:fontFamily="@font/audiowide"-->
+        <!--                    android:gravity="center"-->
+        <!--                    android:text="Light Bulb Test"-->
+        <!--                    android:textSize="18sp" />-->
+        <!--            </RelativeLayout>-->
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/historyCardView"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/heartRateCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/heartRateCardView"
+            app:layout_constraintTop_toTopOf="@+id/heartRateCardView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/historyIcon"
+                    android:layout_width="115dp"
+                    android:layout_height="115dp"
+                    android:layout_above="@+id/lightBulbTextView"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:clickable="false"
+                    android:src="@drawable/ic_history" />
+
+                <TextView
+                    android:id="@+id/lightBulbTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/audiowide"
+                    android:gravity="center"
+                    android:text="My History"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

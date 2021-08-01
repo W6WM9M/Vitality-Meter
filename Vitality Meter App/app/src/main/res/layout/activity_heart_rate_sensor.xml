@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HeartRateSensorActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/heartRateSesnorAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            app:title="Heart Rate Senosr"
+            app:titleTextAppearance="@style/TitleBarTextAppearance"
+            app:titleTextColor="#F86969"
+            >
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/heartRateSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/heartRatePowerTxtView"
+        android:layout_alignBottom="@+id/heartRatePowerTxtView"
+        android:layout_toEndOf="@+id/heartRatePowerTxtView"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/heartRatePowerTxtView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/heartRatePowerTxtView"
+        app:layout_constraintTop_toTopOf="@+id/heartRatePowerTxtView"
+        app:layout_constraintVertical_bias="0.409"
+        app:switchMinWidth="60dp" />
+
+    <TextView
+        android:id="@+id/heartRatePowerTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heartRateSesnorAppBar"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Power:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/heartRateSwitch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartRateSesnorAppBar" />
+
+    <ImageView
+        android:id="@+id/heartAnimation"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/heartrate"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bpmTextView" />
+
+    <Button
+        android:id="@+id/startHeartRateReadingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:enabled="false"
+        android:fontFamily="@font/audiowide"
+        android:text="Start Reading"
+        android:textAllCaps="false"
+        android:textColor="@color/button_text"
+        app:backgroundTint="@color/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartRatePowerTxtView" />
+
+    <TextView
+        android:id="@+id/heartRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Heart Rate"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startHeartRateReadingBtn" />
+
+    <TextView
+        android:id="@+id/fingerOnOximeterNotification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/audiowide"
+        android:gravity="center_horizontal"
+        android:text="Place your finger on the sensor"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/heartRateSwitch"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/heartRatePowerTxtView"
+        app:layout_constraintTop_toBottomOf="@+id/startHeartRateReadingBtn" />
+
+    <ImageView
+        android:id="@+id/fingerOnOximeterImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/finger_on_oximeter"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/heartRate"
+        app:layout_constraintStart_toStartOf="@+id/heartRate"
+        app:layout_constraintTop_toBottomOf="@+id/bpmTextView"
+        app:tint="#898686" />
+
+    <TextView
+        android:id="@+id/bpmTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:text="bpm"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/heartRate"
+        app:layout_constraintStart_toStartOf="@+id/heartRate"
+        app:layout_constraintTop_toBottomOf="@+id/heartRate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
